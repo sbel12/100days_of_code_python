@@ -1,2 +1,2 @@
-# 100days_of_code
+# 100days_of_code in Python
 Following the course from Udemy
