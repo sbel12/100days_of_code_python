@@ -10,3 +10,7 @@ names = names_string.split(", ")
 pos=random.randint(0,len(names)-1)
 print(pos)
 print(f'\n {names[pos]} is going to buy the meal today')
+
+#or simlier way:
+
+print(f'\n {random.choice(names)} is going to buy the meal today')
