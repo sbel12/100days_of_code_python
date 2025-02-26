@@ -1,0 +1,11 @@
+import random
+names=['Sasha', 'Sveta', 'Boris', 'Anna','Lucya']
+num=random.randint(0,len(names)-1)
+
+print(num)
+
+print(f'The bill is payed by: {names[num]}')
+
+# Second Option
+#num1 = random.choice((names))
+#print(num1)
