@@ -1,0 +1,21 @@
+# Rock Paper Scissors game
+
+names1=['Rock', 'Paper', 'Scissors']
+player_choice=int(input('Type 0 for Rock, 1 for Paper or 2 for Scissors: '))
+player_choice_int=names1[player_choice]
+comp_choice=random.choice(names1)
+                          
+print(f'Player choise is {player_choice_int}')
+print(f'Comp choise is {comp_choice}')
+
+if player_choice_int != comp_choice:
+    if player_choice_int=='Rock' and comp_choice=='Paper':
+        print('Computer has Won')
+    elif player_choice_int=='Paper' and comp_choice=='Scissors':
+        print('Computer has Won')
+    elif player_choice_int=='Scissors' and comp_choice=='Rock':
+        print('Computer has Won')
+    else:
+        print('You are Victorious')
+else:
+    print("It's a draw")
