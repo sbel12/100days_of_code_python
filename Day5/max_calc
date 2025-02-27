@@ -1,0 +1,10 @@
+scores=[10,18,15,25,30,11,12,0,81,48,54,92,58,65,75,91,88,77,55,66,88,96,55]
+#print(scores)
+max_score=max(scores)
+print(max_score)
+max_score=0
+for score in scores:
+    if max_score<=score:
+        max_score=score
+
+print(f' the max score is: {max_score}') 
