@@ -1,0 +1,19 @@
+def calculate_love_score(name1, name2):
+    a=0
+    b=0
+    first_check='true'
+    sec_check='love'
+    for letter in first_check:
+        if letter in name1:
+            a+=name1.count(letter)
+        if letter in name2:
+            a+=name2.count(letter)
+    print(a)
+    for letter in sec_check:
+        if letter in name1:
+            b+=name1.count(letter)
+        if letter in name2:
+            b+=name2.count(letter)
+    print(b)
+    tot=str(a)+str(b)
+    print(f'Total score is: {tot}')
