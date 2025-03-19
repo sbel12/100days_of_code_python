@@ -1,0 +1,54 @@
+# Caeser Cipher
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f',
+            'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r',
+            's', 't', 'u', 'v', 'w', 'x',
+            'y', 'z', ' ']
+
+def encrypt(text, shift):
+    text_encr=''
+    for letter in text:
+        pos=alphabet.index(letter)
+        #print(f'first: {pos}')
+        
+        if (pos+shift)>=len(alphabet):
+            n_pos=(pos+shift)-len(alphabet)
+            text_encr+=alphabet[n_pos]
+            #print(f'second: {text_encr}')
+        
+        else:
+            text_encr+=alphabet[pos+shift]
+            #print(f'thirdd: {text_encr}')
+    print(f'The encrypted text is: {text_encr}')
+
+def decode(text, shift):
+    text_decr=''
+    for letter in text:
+        posb=alphabet.index(letter)
+        #print(posb)
+        if (posb-shift)<0:
+            posb=(len(alphabet))+(posb-shift)
+            text_decr+=alphabet[posb]
+            #print(text_decr)
+            #print(posb)
+        
+        else:
+            text_decr+=alphabet[posb-shift]
+            #print(text_decr)
+            #print(posb)
+        
+        
+    print(f'The decoded text is: {text_decr}')
+
+def ceasar_cypher():
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    
+    shift = int(input("Type the shift number:\n"))
+
+    if direction=='encode':
+        encrypt(text, shift)
+    elif direction=='decode':
+        decode(text, shift)
+    else:
+        print('Wrong input')
