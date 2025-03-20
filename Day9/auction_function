@@ -1,0 +1,25 @@
+def auction():    
+    print('Hello. Welcome to auction')
+    auct={}
+    another_bid=True
+    name_list=[]
+    bet_list=[]
+    while another_bid==True:
+
+        name_bid=input('What is your name: \n')
+        bid=int(input('What is your bid: $ \n'))
+        auct[name_bid]=bid
+
+        another=input('Type "yes" for another bid or "No" to quit: ').lower()
+        #print('\n' *10)
+        if another=='no':
+            another_bid=False
+            print(auct)
+            for key in auct:
+                name_list.append(key)
+                #print(auct[key])
+                bet_list.append(int(auct[key]))
+            #print(name_list)
+            #print(bet_list)
+            pos=bet_list.index(max(bet_list))
+            print(f'The winner is: {name_list[pos]}, the winning price is: {bet_list[pos]}')
