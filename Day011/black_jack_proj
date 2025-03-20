@@ -1,0 +1,39 @@
+import random
+
+cont_game=True
+
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+player_cards=[]
+comp_cards=[]
+
+def draw_cards():
+    return random.choice(cards)
+
+def ace(list_of_cards):
+    list_of_cards.sort(reverse=True)
+    print(list_of_cards)
+    if list_of_cards[0]==11:
+        list_of_cards.pop(0)
+        if sum(list_of_cards)<=10:
+            total=sum(list_of_cards)+11
+            print(f' first {total}')
+        elif sum(list_of_cards)>10:
+            total=sum(list_of_cards)+1
+            print(f' sec {total}')
+    else:
+        total=sum(list_of_cards)
+        print(f' third {total}')
+    print(total)
+    return total
+            
+
+def cards():
+    start_cards=[draw_cards(), draw_cards()]
+    print(start_cards)
+    sum_cards=sum(start_cards)
+    if sum_cards<=
+    print(sum_player)
+    
+    
+
+#player_cards.append((random.choice(cards)))
