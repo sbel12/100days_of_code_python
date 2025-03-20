@@ -1,0 +1,49 @@
+def add(n1,n2):
+    return n1+n2
+
+def subtract(n1,n2):
+    return n1-n2
+
+def multiply(n1,n2):
+    return n1*n2
+
+def divide(n1,n2):
+    return n1/n2
+
+def calc():
+    n1=int(input('please enter the first number: '))
+    oper=input('Please choose and operation: + - * / ')
+    n2=int(input('please enter the seconde numberr: '))
+    ans=operations[oper](n1,n2)
+    print(ans)
+    return ans
+
+operations={
+    '+': add,
+    '-': subtract,
+    '*': multiply,
+    '/': divide,
+}
+def calculator():
+    cond=True
+    global ans
+    ans=calc()
+    
+    while cond:
+  
+        to_proc=input('Do you want to proceed with the previous result: y or n or q:').lower()
+        if to_proc=='y':
+            
+            n1=ans
+            oper=input('Please choose and operation: + - * / ')
+            n2=int(input('please enter the seconde numberr: '))
+            ans=operations[oper](n1,n2)
+            print(ans)
+        elif to_proc=='n':
+            calc()
+        else:
+            print('Buy Buy')
+            cond=False
+            #return
+
+    
