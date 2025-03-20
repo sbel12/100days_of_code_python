@@ -23,3 +23,6 @@ def auction():
             #print(bet_list)
             pos=bet_list.index(max(bet_list))
             print(f'The winner is: {name_list[pos]}, the winning price is: {bet_list[pos]}')
+
+# Another way to get the maximum value from a dictionary is by using max():
+max(auct, key=auct.get)
