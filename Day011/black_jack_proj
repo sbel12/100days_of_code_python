@@ -1,39 +1,77 @@
 import random
-
 cont_game=True
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 player_cards=[]
 comp_cards=[]
 
+
 def draw_cards():
-    return random.choice(cards)
+    start_cards=[]
+    # x=random.choice(cards)
+    # print(x)
+    for _ in range(2):
+        start_cards.append(int(random.choice(cards)))
+    # start_cards.append(random.choice(cards))
+    #print(start_cards)
+    return start_cards
 
 def ace(list_of_cards):
     list_of_cards.sort(reverse=True)
-    print(list_of_cards)
+    #print(list_of_cards)
     if list_of_cards[0]==11:
         list_of_cards.pop(0)
         if sum(list_of_cards)<=10:
             total=sum(list_of_cards)+11
-            print(f' first {total}')
+            #print(f' first {total}')
         elif sum(list_of_cards)>10:
             total=sum(list_of_cards)+1
-            print(f' sec {total}')
+            #print(f' sec {total}')
     else:
         total=sum(list_of_cards)
-        print(f' third {total}')
-    print(total)
+        #print(f' third {total}')
+    #print(total)
     return total
             
+while cont_game==True:
 
-def cards():
-    start_cards=[draw_cards(), draw_cards()]
-    print(start_cards)
-    sum_cards=sum(start_cards)
-    if sum_cards<=
-    print(sum_player)
+    do_play=input('Do you want to play: y or n:')
     
+    if do_play!='y':
+        cont_game=False 
+            
+    comp_cards=draw_cards()
     
+    print(f'Comp Cards are: {comp_cards}')
+    print(f'Comp Cards are: {comp_cards[0]}')
+    
+    player_cards=draw_cards()
+    print(f'Players Cards are: {player_cards}')
+    
+    if ace(player_cards)==21:
+        print('Black Jack, You win')
+        cont_game=False
+    else: 
+        ch=input('Do yo want another card? Type y or n:')
+        while ch=='y':
+            
+            player_cards.append(int(random.choice(cards)))
+            print(f'Your cards now: {player_cards}')
+            ch=input('Do yo want another card? Type y or n:')
+            
+    while ace(comp_cards)<=15:
+        comp_cards.append(int(random.choice(cards)))
+        print(f'Comp Cards are: {comp_cards}')
+    if sum(comp_cards)>21:
+        print("Too much, Comp Lose")
+        cont_game=False 
 
-#player_cards.append((random.choice(cards)))
+    if ace(comp_cards)==21 and sum(player_cards)<21:
+        print('Black Jack, Comp win')
+        cont_game=False
+    elif ace(comp_cards)>ace(player_cards):
+        print('Comp wins')    
+    elif ace(comp_cards) < ace(player_cards):
+        print('You win')
+    else:
+        Print("DrAw")
