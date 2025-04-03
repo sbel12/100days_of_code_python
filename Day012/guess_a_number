@@ -1,0 +1,40 @@
+import random
+
+cont_gane=True
+
+print('Welcome to the Number Guessing Game! \n')
+print('I am thinking of a number between 1 and 100. \n')
+level=input("Choose a difficulty. Type 'easy' or 'hard': ")
+
+if level=='easy':
+    num_of_lives=10
+    print('You have 10 attempts remaining to guess the number. \n')
+elif level=='hard':
+    num_of_lives=5
+    print('You have 5 attempts remaining to guess the number.')
+else:
+    print('Wrong input')
+
+random_number= random.randint(1, 101)
+
+
+while cont_gane: 
+    guess=int(input("Make a guess: "))
+    if guess<random_number:
+        print("Too low \n")
+        num_of_lives-=1
+    elif guess>random_number:
+        print("Too high \n")
+        num_of_lives-=1
+    elif guess==random_number:
+        print(f"You got it! The answer was {random_number} \n")
+        cont_gane=False
+    else:
+        print("Wrong input")
+        
+    if cont_gane==True:
+        print(f"You have {num_of_lives} attempts remaining to guess the number.")
+    
+    if num_of_lives==0:
+        print("You've run out of guesses. Refresh the page to run again \n")
+        cont_gane=False
