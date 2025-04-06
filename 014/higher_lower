@@ -14,8 +14,8 @@ def random_comp():
     if ver1==ver2:
        ver2=random.choice(data)
        #print(ver2)
-    else:
-       #print('They are not the same')
+    # else:
+    #    print('They are not the same')
     return ver1, ver2
 
 def print_the_choice(letter, wtt):
