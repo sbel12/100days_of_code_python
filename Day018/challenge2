@@ -1,0 +1,17 @@
+from turtle import Turtle, Screen
+
+timmy = Turtle()
+timmy.shape('turtle')
+timmy.color('red')
+
+timmy.pen(fillcolor="magenta", pencolor="green", pensize=1)
+
+for tt in range(15):
+    print(tt)
+    timmy.pd()
+    timmy.forward(10)
+    timmy.penup()
+    timmy.forward(10)
+
+screen = Screen()
+screen.exitonclick()
