@@ -1,0 +1,23 @@
+from turtle import Turtle, Screen
+import random
+
+tim = Turtle()
+tim.shape('turtle')
+tim.color('red')
+
+#tim.pen(fillcolor="magenta", pencolor="green", pensize=3)
+
+tim.speed(speed=7)
+
+colors=['green','brown','black','red','blue','purple','pink','grey','yellow','magenta','cyan']
+
+for tt in range(0,random.choice(range(100))):
+
+    tim.pen(pencolor=random.choice(colors), pensize=4)
+    angle=random.choice([ 0, 90, 180, 270])
+    tim.forward(15)
+    tim.setheading(angle)
+print(tt)
+
+screen = Screen()
+screen.exitonclick()
