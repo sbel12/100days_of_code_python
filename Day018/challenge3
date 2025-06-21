@@ -1,0 +1,21 @@
+from turtle import Turtle, Screen
+
+timmy = Turtle()
+timmy.shape('turtle')
+timmy.color('red')
+
+timmy.pen(fillcolor="magenta", pencolor="green", pensize=1)
+
+colors=['green','brown','black','red','blue','purple','pink','grey',]
+
+for tt in range(3,11):
+    print(tt)
+    timmy.pen(pencolor=colors[tt-3])
+    angle=360/tt
+    for _ in range(1,tt+1):
+        timmy.forward(100)
+        timmy.right(angle)
+
+
+screen = Screen()
+screen.exitonclick()
