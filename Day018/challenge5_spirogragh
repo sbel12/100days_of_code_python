@@ -1,0 +1,33 @@
+import turtle
+from turtle import Turtle, Screen
+import random
+
+tim = Turtle()
+tim.shape('turtle')
+
+#tim.pen(fillcolor="magenta", pencolor="green", pensize=2)
+
+tim.speed(speed='fastest')
+turtle.colormode(255) # switch to color from rgb tuple
+
+def random_colors():
+
+    r = random.randint(0,255)
+    g = random.randint(0,255)
+    b = random.randint(0,255)
+    rgb_color=(r, g, b) # creating color tuple
+    print(rgb_color)
+    return rgb_color
+
+
+for angle in range(10,360+10,5):
+    print(angle)
+
+    tim.color(random_colors())
+    tim.right(angle)
+    tim.circle(100, extent=None, steps=None)
+    tim.left(angle)
+
+
+screen = Screen()
+screen.exitonclick()
