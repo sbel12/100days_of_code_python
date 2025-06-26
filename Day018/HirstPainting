@@ -1,0 +1,43 @@
+import turtle
+from turtle import Turtle, Screen
+import random
+
+
+tim = Turtle()
+tim.shape('turtle')
+
+
+#tim.pen(fillcolor="magenta", pencolor="green", pensize=2)
+
+tim.speed(speed=10)
+turtle.colormode(255)
+
+def random_colors():
+
+    r = random.randint(0,255)
+    g = random.randint(0,255)
+    b = random.randint(0,255)
+    rgb_color=(r, g, b)
+    print(rgb_color)
+    return rgb_color
+
+
+tim.penup()
+tim.setheading(225)
+tim.forward(300)
+tim.setheading(0)
+
+for _ in range(10):
+    for _ in range(10):
+        tim.dot(20, random_colors())
+        tim.forward(50)
+        
+    tim.left(90)
+    tim.forward(50)
+    tim.left(90)
+    tim.forward(500)
+    tim.setheading(0)
+tim.hideturtle()
+
+screen = Screen()
+screen.exitonclick()
