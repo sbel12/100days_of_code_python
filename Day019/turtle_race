@@ -1,0 +1,45 @@
+from turtle import Turtle, Screen
+import random
+
+is_race_on=False
+
+screen = Screen()
+screen.setup(width=500,height=400)
+user_bet=screen.textinput(title="make your bet", prompt='Which turtle will win the race? Enter a color: ')
+names=['tim','tom','dom', "jen","lol","sas",'ron']
+colors=['red','blue','green','pink','purple','brown','black']
+turtles=[]
+
+for index in range(len(names)):
+    new_turtle = Turtle(shape='turtle')
+    new_turtle.color(colors[index])
+    new_turtle.name=names[index]
+    turtles.append(new_turtle)
+    new_turtle.penup()
+    yy=-150+(index)*50
+    new_turtle.goto(x=-220,y=yy)
+
+if user_bet:
+    is_race_on=True
+
+while is_race_on:
+
+    for turtle in turtles:
+        rand_dist= random.randint(1,10)
+        turtle.forward(rand_dist)
+        turtle_pos = turtle.position()
+        # print(turtle_pos)
+
+        if turtle_pos[0]>= 230:
+            # print(turtle.color())
+            print(f"The winner is {turtle.color()[0]} turtle")
+            print(f"Your choice was {user_bet}")
+
+
+            if turtle.color()[0] == user_bet:
+                print("You WON")
+            else:
+                print("You Loose")
+            is_race_on = False
+
+screen.exitonclick()
