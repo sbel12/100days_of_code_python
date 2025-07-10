@@ -1,0 +1,57 @@
+import time
+from turtle import Screen, Turtle
+from  paddle import Paddle
+from ball import Ball
+import time
+from  scoreboard import Scoreboard
+
+
+
+screen=Screen()
+screen.setup(width=800,height=600)
+screen.bgcolor('black')
+screen.title(titlestring='Pong game')
+screen.tracer(0)
+
+
+right_paddle = Paddle((350,0))
+left_paddle = Paddle((-350,0))
+
+new_ball=Ball()
+
+scoreboard=Scoreboard()
+
+screen.listen()
+screen.onkey(right_paddle.go_up, "Up")
+screen.onkey(right_paddle.go_down, "Down")
+screen.onkey(left_paddle.go_up, "w")
+screen.onkey(left_paddle.go_down, "s")
+
+
+
+game_is_on = True
+
+while game_is_on:
+    time.sleep(new_ball.move_speed)
+    new_ball.ball_move()
+
+    # detect the collision with the wall
+    if new_ball.ycor()>280 or new_ball.ycor()<-280:
+        new_ball.bounce_y()
+    # detect collision with the right paddle
+    if new_ball.distance(right_paddle)<50 and new_ball.xcor()>325 or new_ball.distance(left_paddle)<50 and new_ball.xcor()>-325 :
+        print("made contact")
+        new_ball.bounce_x()
+    # ball misses the right paddle
+    if new_ball.xcor() > 380:
+       new_ball.reset_position()
+       scoreboard.l_point()
+
+    # ball misses the right paddle
+    if new_ball.xcor() < -380:
+        new_ball.reset_position()
+        scoreboard.r_point()
+
+    screen.update()
+
+screen.exitonclick()
